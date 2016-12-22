@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
-import { connect } from 'react-redux';
 import { fromJS } from 'immutable';
 import SignForm from '../../components/SignForm';
-import { signIn } from '../../actions';
+
 
 class SignUpPage extends Component {
   constructor(props) {
@@ -62,15 +61,4 @@ const createUserMutation = gql`
 
 const SignUpWithData = graphql(createUserMutation)(withRouter(SignUpPage));
 
-const mapDispatchToProps = (dispatch) => ({
-  signInDispatcher(token) {
-    dispatch(signIn(token));
-  }
-});
-
-const SignUpWithDataAndDispatch = connect(
-  null,
-  mapDispatchToProps
-)(SignUpWithData);
-
-export default SignUpWithDataAndDispatch;
+export default SignUpWithData;

@@ -1,7 +1,7 @@
 import { fromJS } from 'immutable';
 
 import {
-  AUTH_SIGNIN,
+  AUTH_LOGIN,
   AUTH_LOGOUT,
 } from '../actions';
 
@@ -11,7 +11,7 @@ const initialState = fromJS({
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case AUTH_SIGNIN:
+    case AUTH_LOGIN:
       return state.set('authenticated', true);
     case AUTH_LOGOUT:
       return state.set('authenticated', false);

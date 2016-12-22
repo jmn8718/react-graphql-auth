@@ -18,7 +18,7 @@ import SignUpPage from './containers/signUpPage';
 import SignUpSuccessPage from './containers/signUpSuccessPage';
 
 import {
-  signIn,
+  logIn,
 } from './actions';
 
 import getStore from './reducers';
@@ -48,7 +48,7 @@ const store = getStore(client)
 
 if (token) {
   // We need to update application state if the token exists
-  store.dispatch(signIn(token));
+  store.dispatch(logIn(token));
 }
 
 ReactDOM.render(
