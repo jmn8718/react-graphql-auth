@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class Home extends Component {
+class HomePage extends Component {
   render() {
-    console.log(this.props.auth)
     return (
       <div>
       Home
@@ -14,8 +13,7 @@ class Home extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  auth: state.auth,
   authenticated: state.auth.get('authenticated')
 });
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps)(HomePage);

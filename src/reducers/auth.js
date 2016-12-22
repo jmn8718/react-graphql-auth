@@ -10,7 +10,6 @@ const initialState = fromJS({
 });
 
 export default (state = initialState, action) => {
-  console.log(action.type)
   switch (action.type) {
     case AUTH_SIGNIN:
       return state.set('authenticated', true);
