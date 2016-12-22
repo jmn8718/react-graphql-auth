@@ -26,7 +26,7 @@ class LogInPage extends Component {
       .then((response) => {
         const data = fromJS(response.data);
         if (!data.has('errors')) {
-          this.props.logInDispatcher(data.get('signinUser').get('token'))
+          this.props.logInDispatcher(data.get('signinUser').get('token'));
           this.props.router.replace('/');
         } else {
           this.handleErrors(data.get('errors'));
