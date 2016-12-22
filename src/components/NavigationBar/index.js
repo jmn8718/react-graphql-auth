@@ -4,7 +4,18 @@ import { AppBar } from 'material-ui';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 
+import './index.css';
+
 class NavigationBar extends React.Component {
+  static propTypes = {
+    title: React.PropTypes.string,
+    authenticated: React.PropTypes.bool,
+  }
+
+  static defaultProps = {
+    title: 'Home',
+    authenticated: false,
+  }
   constructor(props) {
     super(props);
     this.state = {
@@ -16,10 +27,11 @@ class NavigationBar extends React.Component {
   handleClose = () => this.setState({open: false});
 
   render() {
+    const { title, authenticated } = this.props;
     return (
       <div>
         <AppBar
-          title={this.props.title || 'Home'}
+          title={title}
           onLeftIconButtonTouchTap={this.handleToggle}
         />
         <Drawer
@@ -29,9 +41,9 @@ class NavigationBar extends React.Component {
           onRequestChange={(open) => this.setState({open})}
         >
           <MenuItem onTouchTap={this.handleClose}><Link to={'/'}>Home</Link></MenuItem>
-          <MenuItem onTouchTap={this.handleClose}><Link to={'/signup'}>Sign Up</Link></MenuItem>
-          <MenuItem onTouchTap={this.handleClose}><Link to={'/login'}>Log In</Link></MenuItem>
-          <MenuItem onTouchTap={this.handleClose}><Link to={'/logout'}>Log Out</Link></MenuItem>
+          {!authenticated && <MenuItem onTouchTap={this.handleClose}><Link to={'/signup'}>Sign Up</Link></MenuItem>}
+          {!authenticated && <MenuItem onTouchTap={this.handleClose}><Link to={'/login'}>Log In</Link></MenuItem>}
+          {authenticated && <MenuItem onTouchTap={this.handleClose}><Link to={'/logout'}>Log Out</Link></MenuItem>}
         </Drawer>
       </div>
     )

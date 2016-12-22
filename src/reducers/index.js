@@ -1,12 +1,17 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { reducer as form } from 'redux-form/immutable';
+import { routerReducer } from 'react-router-redux'
+
 import auth from './auth';
+import app from './app';
 
 export default function getStore(client) {
   const rootReducer = combineReducers({
     auth,
+    app,
     form,
     apollo: client.reducer(),
+    routing: routerReducer,
   });
   const store = createStore(
     rootReducer,
@@ -17,5 +22,5 @@ export default function getStore(client) {
       window.devToolsExtension ? window.devToolsExtension() : f => f,
     )
   )
-  return store
+  return store;
 }

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 // eslint-disable-next-line
 import { applyMiddleware } from 'redux';
 import { Router, Route, browserHistory, IndexRoute, applyRouterMiddleware } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux'
 import { useScroll } from 'react-router-scroll';
 import ApolloClient, { createNetworkInterface } from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
@@ -46,6 +47,8 @@ const client = new ApolloClient({
 
 const store = getStore(client)
 
+const history = syncHistoryWithStore(browserHistory, store)
+
 if (token) {
   // We need to update application state if the token exists
   store.dispatch(logIn(token));
@@ -53,7 +56,7 @@ if (token) {
 
 ReactDOM.render(
   <ApolloProvider client={client} store={store}>
-    <Router history={browserHistory} render={applyRouterMiddleware(useScroll())}>
+    <Router history={history} render={applyRouterMiddleware(useScroll())}>
       <Route path="/" component={App}>
         <IndexRoute component={HomePage} />
         <Route path="signup" component={SignUpPage}/>

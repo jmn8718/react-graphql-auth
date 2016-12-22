@@ -14,3 +14,6 @@ More info [here](https://www.graph.cool/docs/reference/platform/authentication)
 https://css-tricks.com/learning-react-router/
 https://www.graph.cool/docs/reference/simple-api/overview
 https://github.com/jferrettiboke/react-auth-app-example
+
+## Demo
+https://react-graphql-auth.herokuapp.com/
