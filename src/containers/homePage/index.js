@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class HomePage extends Component {
+
+  renderPublic = () => {
+    return <div>You are visitor</div>
+  }
+
+  renderPrivate = () => {
+    return <div>You are logged in</div>
+  }
   render() {
-    return (
-      <div>
-      Home
-      is autheticated?? {this.props.authenticated ? 'YES' : 'NO'}
-      </div>
-    );
+    return this.props.authenticated ? this.renderPrivate() : this.renderPublic();
   }
 }
 

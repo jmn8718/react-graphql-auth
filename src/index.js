@@ -23,6 +23,7 @@ import {
 } from './actions';
 
 import getStore from './reducers';
+import { requireLogin } from './utils';
 
 const token = localStorage.getItem('token');
 
@@ -59,10 +60,14 @@ ReactDOM.render(
     <Router history={history} render={applyRouterMiddleware(useScroll())}>
       <Route path="/" component={App}>
         <IndexRoute component={HomePage} />
-        <Route path="signup" component={SignUpPage}/>
-        <Route path="signup-success" component={SignUpSuccessPage}/>
-        <Route path="login" component={LogInPage}/>
-        <Route path="logout" component={LogOutPage}/>
+        <Route onEnter={(nextState, replace, cb) => requireLogin(store, false, '/', replace, cb)}>
+          <Route path="login" component={LogInPage} />
+          <Route path="signup" component={SignUpPage} />
+          <Route path="signup-success" component={SignUpSuccessPage} />
+        </Route>
+        <Route onEnter={(nextState, replace, cb) => requireLogin(store, true, '/login', replace, cb)}>
+          <Route path="logout" component={LogOutPage} />
+        </Route>
       </Route>
     </Router>
   </ApolloProvider>,

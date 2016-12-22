@@ -26,7 +26,7 @@ const SignForm = (props) => {
       <Field name="email" type="email" component={renderField} label="Email"/>
       <Field name="password" type="password" component={renderField} label="Password"/>
       <RaisedButton
-        label="Sign Up"
+        label={props.buttonText}
         fullWidth={true}
         type="submit"
         disabled={pristine || submitting}

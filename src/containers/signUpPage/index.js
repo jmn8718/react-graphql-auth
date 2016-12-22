@@ -38,12 +38,10 @@ class SignUpPage extends Component {
   render() {
     return (
       <div className="pa4 black-80">
-        <div className="f1 fl w-100 tc">
-          Sign In
-        </div>
         <SignForm
           onSubmit={this.onSubmit}
           errors={this.state.errors}
+          buttonText="Sign Up"
         />
         <p>If you have an account, go to the <Link to={'/login'}>Login</Link> page</p>
       </div>
