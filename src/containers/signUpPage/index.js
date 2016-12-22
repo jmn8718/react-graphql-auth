@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router';
+import { withRouter, Link } from 'react-router';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import { connect } from 'react-redux';
 import { fromJS } from 'immutable';
-import SignUpForm from '../components/SignUpForm';
-import { signIn } from '../actions';
+import SignForm from '../../components/SignForm';
+import { signIn } from '../../actions';
 
 class SignUpPage extends Component {
   constructor(props) {
@@ -26,8 +26,7 @@ class SignUpPage extends Component {
       .then((response) => {
         const data = fromJS(response.data);
         if (!data.has('errors')) {
-          this.props.signInDispatcher(data.get('id'));
-          this.props.router.replace('/');
+          this.props.router.replace('/signup-success');
         } else {
           this.handleErrors(data.get('errors'));
         }
@@ -40,10 +39,14 @@ class SignUpPage extends Component {
   render() {
     return (
       <div className="pa4 black-80">
-        <SignUpForm
+        <div className="f1 fl w-100 tc">
+          Sign In
+        </div>
+        <SignForm
           onSubmit={this.onSubmit}
           errors={this.state.errors}
         />
+        <p>If you have an account, go to the <Link to={'/login'}>Login</Link> page</p>
       </div>
     );
   }

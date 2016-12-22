@@ -1,5 +1,5 @@
 export const AUTH_SIGNIN = 'AUTH_SIGNIN';
-export const AUTH_SIGNOUT = 'AUTH_SIGNOUT';
+export const AUTH_LOGOUT = 'AUTH_LOGOUT';
 
 export const signIn = (token) => {
   localStorage.setItem('token', token);
@@ -8,9 +8,9 @@ export const signIn = (token) => {
   };
 };
 
-export const signOut = () => {
+export const logOut = () => {
   localStorage.removeItem('token');
   return {
-    type: AUTH_SIGNOUT,
+    type: AUTH_LOGOUT,
   };
 };

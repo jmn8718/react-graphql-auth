@@ -19,7 +19,7 @@ const renderField = ({ input, label, meta: { touched, error }, ...custom }) => {
   );
 };
 
-const SignUpForm = (props) => {
+const SignForm = (props) => {
   const { handleSubmit, pristine, submitting, errors } = props;
   return (
     <form onSubmit={handleSubmit} className="measure center">
@@ -56,6 +56,6 @@ const validate = (values = fromJS({})) => {
 
 // Decorate the form component
 export default reduxForm({
-  form: 'SignUpForm', // a unique name for this form
+  form: 'SignForm', // a unique name for this form
   validate
-})(SignUpForm);
+})(SignForm);

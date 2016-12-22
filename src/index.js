@@ -10,11 +10,16 @@ import { ApolloProvider } from 'react-apollo';
 import 'tachyons';
 import './index.css';
 
-import App from './containers/App';
-import HomePage from './containers/HomePage';
-// import SignInPage from './containers/SignInPage';
-import SignUpPage from './containers/SignUpPage';
-import { AUTH_SIGNIN } from './actions';
+import App from './containers/app';
+import HomePage from './containers/homePage';
+import LogInPage from './containers/logInPage';
+import LogOutPage from './containers/logOutPage';
+import SignUpPage from './containers/signUpPage';
+import SignUpSuccessPage from './containers/signUpSuccessPage';
+
+import {
+  signIn,
+} from './actions';
 
 import getStore from './reducers';
 
@@ -43,7 +48,7 @@ const store = getStore(client)
 
 if (token) {
   // We need to update application state if the token exists
-  store.dispatch({ type: AUTH_SIGNIN });
+  store.dispatch(signIn(token));
 }
 
 ReactDOM.render(
@@ -52,6 +57,9 @@ ReactDOM.render(
       <Route path="/" component={App}>
         <IndexRoute component={HomePage} />
         <Route path="signup" component={SignUpPage}/>
+        <Route path="signup-success" component={SignUpSuccessPage}/>
+        <Route path="login" component={LogInPage}/>
+        <Route path="logout" component={LogOutPage}/>
       </Route>
     </Router>
   </ApolloProvider>,
