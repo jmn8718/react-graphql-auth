@@ -12,9 +12,10 @@ const initialState = fromJS({
 export default (state = initialState, action) => {
   switch (action.type) {
     case AUTH_LOGIN:
-      return state.set('authenticated', true);
+      return state
+        .set('authenticated', true);
     case AUTH_LOGOUT:
-      return state.set('authenticated', false);
+      return initialState;
     default:
       return state;
   }

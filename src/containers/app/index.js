@@ -10,13 +10,13 @@ import NavigationBar from '../../components/NavigationBar';
 injectTapEventPlugin();
 
 class App extends Component {
+
   render() {
     const { children, authenticated, title } = this.props;
-    console.log(authenticated)
     return (
       <MuiThemeProvider>
         <div className='w-100 bg-light-gray min-vh-100'>
-          <NavigationBar authenticated={authenticated} title={title}/>
+          <NavigationBar authenticated={authenticated} title={title} />
           <div className='flex flex-wrap justify-center center w-75'>
             {children}
           </div>

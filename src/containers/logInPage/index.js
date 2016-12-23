@@ -8,9 +8,12 @@ import SignForm from '../../components/SignForm';
 import { logIn } from '../../actions';
 
 class LogInPage extends Component {
+
   constructor(props) {
     super(props);
-    this.state = { errors: [] };
+    this.state = {
+      errors: [],
+    };
   }
 
   handleErrors = (errors = '') => {
@@ -55,9 +58,6 @@ const createUserMutation = gql`
   mutation signinUser($email: String!, $password: String!){
     signinUser(email: {email: $email, password: $password}) {
       token
-      user {
-        id
-      }
     }
   }
 `;

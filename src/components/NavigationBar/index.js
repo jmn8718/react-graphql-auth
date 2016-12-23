@@ -4,6 +4,8 @@ import { AppBar } from 'material-ui';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 
+import UserDrawer from '../UserDrawer';
+
 import './index.css';
 
 class NavigationBar extends React.Component {
@@ -15,6 +17,7 @@ class NavigationBar extends React.Component {
   static defaultProps = {
     title: 'Home',
     authenticated: false,
+    id: undefined,
   }
   constructor(props) {
     super(props);
@@ -40,6 +43,7 @@ class NavigationBar extends React.Component {
           open={this.state.open}
           onRequestChange={(open) => this.setState({open})}
         >
+          {authenticated && <UserDrawer />}
           <MenuItem onTouchTap={this.handleClose}><Link to={'/'}>Home</Link></MenuItem>
           {!authenticated && <MenuItem onTouchTap={this.handleClose}><Link to={'/signup'}>Sign Up</Link></MenuItem>}
           {!authenticated && <MenuItem onTouchTap={this.handleClose}><Link to={'/login'}>Log In</Link></MenuItem>}

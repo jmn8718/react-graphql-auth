@@ -1,7 +1,7 @@
 export const AUTH_LOGIN = 'AUTH_LOGIN';
 export const AUTH_LOGOUT = 'AUTH_LOGOUT';
 
-export const logIn = (token) => {
+export const logIn = (token, id) => {
   localStorage.setItem('token', token);
   return {
     type: AUTH_LOGIN,
