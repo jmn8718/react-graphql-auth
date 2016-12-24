@@ -42,7 +42,7 @@ class LogInPage extends Component {
 
   render() {
     return (
-      <div className="pa4 black-80">
+      <div className="pa4 black-80 w-75">
         <SignForm
           onSubmit={this.onSubmit}
           errors={this.state.errors}

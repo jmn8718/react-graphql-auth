@@ -33,7 +33,6 @@ const UserQuery = gql`
   }
 `;
 
-
 const UserDrawerWithData = graphql(UserQuery)(UserDrawer)
 
 export default UserDrawerWithData;

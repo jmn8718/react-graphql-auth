@@ -17,7 +17,7 @@ class App extends Component {
       <MuiThemeProvider>
         <div className='w-100 bg-light-gray min-vh-100'>
           <NavigationBar authenticated={authenticated} title={title} />
-          <div className='flex flex-wrap justify-center center w-75'>
+          <div className='flex flex-wrap justify-center center w-100'>
             {children}
           </div>
         </div>

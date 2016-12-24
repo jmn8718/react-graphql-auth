@@ -10,7 +10,7 @@ class LogOutPage extends Component {
 
   render() {
     return (
-      <div className="pa4 black-80">
+      <div className="pa4 black-80 w-75">
         <p>You have been logged out successfully.</p>
         <p>Go to the <Link to={'/login'}>Login</Link> page</p>
       </div>
