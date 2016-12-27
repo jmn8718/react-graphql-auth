@@ -6,6 +6,7 @@ import { withRouter } from 'react-router';
 import { fromJS } from 'immutable';
 
 import PlacesList from '../../components/PlacesList';
+import MapDrawer from '../../components/MapDrawer';
 
 class HomePage extends Component {
   static propTypes = {
@@ -23,10 +24,8 @@ class HomePage extends Component {
     console.log(places, fromJS(places))
     return (
       <div className="w-100" style={{ minHeight: 'calc(100vh - 64px)'}}>
-        <PlacesList className="fl w-third b--dotted min-h-100" loading={loading} places={fromJS(places)} />
-        <div className="fl w-two-thirds b--dotted min-h-100">
-          MAP
-        </div>
+        <PlacesList className="fl w-third min-h-100" loading={loading} places={fromJS(places)} />
+        <MapDrawer className="fl w-two-thirds min-h-100" />
       </div>
     );
   }
