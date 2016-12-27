@@ -18,14 +18,31 @@ class HomePage extends Component {
     router: React.PropTypes.object.isRequired,
   }
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      hoveredPlace: undefined,
+    }
+  }
+
+  onHover = (placeId) => {
+    const hoveredPlace = this.props.data.allPlaces.find((element) => element.id === placeId);
+    this.setState({ hoveredPlace });
+  }
+
+  onHoverLeave = () => {
+    this.setState({ hoveredPlace: undefined });
+  }
+
   render() {
     const { data: { loading, allPlaces }} = this.props;
     const places = allPlaces || [];
-    console.log(places, fromJS(places))
     return (
       <div className="w-100" style={{ minHeight: 'calc(100vh - 64px)'}}>
-        <PlacesList className="fl w-third min-h-100" loading={loading} places={fromJS(places)} />
-        <MapDrawer className="fl w-two-thirds min-h-100" />
+        <PlacesList className="fl w-third min-h-100" loading={loading} places={fromJS(places)} onHover={this.onHover} onHoverLeave={this.onHoverLeave}/>
+        <MapDrawer className="fl w-two-thirds min-h-100">
+          <div>{JSON.stringify(this.state.hoveredPlace)}</div>
+        </MapDrawer>
       </div>
     );
   }

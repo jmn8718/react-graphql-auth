@@ -28,8 +28,8 @@ const RatingWrapper = styled.div`
   align-items: center;
 `;
 
-const PlaceListCard = ({ place }) => (
-  <Wrapper>
+const PlaceListCard = ({ place, onHover, onHoverLeave }) => (
+  <Wrapper onMouseOver={() => onHover(place.get('id'))} onMouseLeave={() => onHoverLeave()}>
     <DataWrapper>
       <div>ID: {place.get('id')}</div>
       <div>NAME: {place.get('name')}</div>
