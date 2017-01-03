@@ -13,7 +13,6 @@
     "graphql-anywhere": "^1.1.2",
     "graphql-tag": "^1.1.2",
     "immutable": "^3.8.1",
-    "leaflet": "1.0.0-rc.2",
     "material-ui": "^0.16.5",
     "react": "^15.4.1",
     "react-apollo": "^0.7.1",
