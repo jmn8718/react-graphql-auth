@@ -33,6 +33,7 @@ const PlaceListCard = ({ place, onHover, onHoverLeave }) => (
     <DataWrapper>
       <div>ID: {place.get('id')}</div>
       <div>NAME: {place.get('name')}</div>
+      <div>Position: {place.get('lat')}, {place.get('lng')} </div>
     </DataWrapper>
     <RatingWrapper>{place.get('rating', 0)}</RatingWrapper>
   </Wrapper>

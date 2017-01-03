@@ -14,6 +14,8 @@ More info [here](https://www.graph.cool/docs/reference/platform/authentication)
 https://css-tricks.com/learning-react-router/
 https://www.graph.cool/docs/reference/simple-api/overview
 https://github.com/jferrettiboke/react-auth-app-example
+https://github.com/fullstackreact/google-maps-react
+https://www.fullstackreact.com/articles/how-to-write-a-google-maps-react-component/
 
 ## Demo
 https://react-graphql-auth.herokuapp.com/

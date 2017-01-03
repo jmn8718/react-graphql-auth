@@ -40,9 +40,7 @@ class HomePage extends Component {
     return (
       <div className="w-100" style={{ minHeight: 'calc(100vh - 64px)'}}>
         <PlacesList className="fl w-third min-h-100" loading={loading} places={fromJS(places)} onHover={this.onHover} onHoverLeave={this.onHoverLeave}/>
-        <MapDrawer className="fl w-two-thirds min-h-100">
-          <div>{JSON.stringify(this.state.hoveredPlace)}</div>
-        </MapDrawer>
+        <MapDrawer className="fl w-two-thirds min-h-100" height="calc(100vh - 64px)" width="calc(100% / 1.5)" marker={fromJS(this.state.hoveredPlace)} />
       </div>
     );
   }
@@ -53,7 +51,9 @@ const PlacesQuery = gql`
     allPlaces {
       id
       name
-      location
+      lat
+      lng
+      rating
     }
   }
 `;

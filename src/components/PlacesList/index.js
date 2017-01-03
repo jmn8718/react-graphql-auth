@@ -7,7 +7,7 @@ import PlaceListSearch from '../PlaceListSearch';
 const PlacesList = ({ loading, places, className, onHover, onHoverLeave }) => {
 
   return (
-    <div className={className} ref={(t) => { debugger }}>
+    <div className={className}>
       <PlaceListSearch />
       {loading ?
         <RefreshIndicator

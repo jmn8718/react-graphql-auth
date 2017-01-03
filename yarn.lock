@@ -2391,6 +2391,13 @@ globby@^5.0.0:
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
 
+google-maps-react:
+  version "1.0.19"
+  resolved "https://registry.yarnpkg.com/google-maps-react/-/google-maps-react-1.0.19.tgz#4ac6e337d7e2c28235e8890e4fa611fba7d00eaf"
+  dependencies:
+    history "^3.0.0"
+    invariant "^2.2.1"
+
 graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.1.9:
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
@@ -3294,6 +3301,10 @@ lcid@^1.0.0:
   resolved "https://registry.yarnpkg.com/lcid/-/lcid-1.0.0.tgz#308accafa0bc483a3867b4b6f2b9506251d1b835"
   dependencies:
     invert-kv "^1.0.0"
+
+leaflet@1.0.0-rc.2:
+  version "1.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/leaflet/-/leaflet-1.0.0-rc.2.tgz#31407b79e37d9b679723d91a26b7ad0a8b9d9063"
 
 levn@^0.3.0, levn@~0.3.0:
   version "0.3.0"
@@ -4442,6 +4453,13 @@ react-event-listener@^0.4.0:
   resolved "https://registry.yarnpkg.com/react-event-listener/-/react-event-listener-0.4.0.tgz#26c40ab18f9f0e0d8d1fed9c3465e79c0a99c9a5"
   dependencies:
     react-addons-shallow-compare "^0.14.0 || ^15.0.0"
+    warning "^3.0.0"
+
+react-leaflet@next:
+  version "1.0.0-rc.3"
+  resolved "https://registry.yarnpkg.com/react-leaflet/-/react-leaflet-1.0.0-rc.3.tgz#779965a695133f35c5465a55d19592441d278026"
+  dependencies:
+    lodash "^4.0.0"
     warning "^3.0.0"
 
 react-redux@^4.0.0:
