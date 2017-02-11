@@ -1,0 +1,56 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Graphcool",
+		"_postman_id": "cecde751-a6e2-a776-cc54-5fa26df0df9b",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "sign in",
+			"request": {
+				"url": "https://api.graph.cool/simple/v1/ciwqwie9x2agt0125xzn8vhov",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"query\" : \"mutation signinUser($email: String!, $password: String!) {  signinUser(email: {email: $email, password: $password}) { token user { id __typename}__typename}}\",\n\t\"variables\": {\n\t\t\"email\": \"jose.navarro@famoco.com\",\n\t\t\"password\": \"jose\"\n\t},\n\t\"operationName\": \"signinUser\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "User",
+			"request": {
+				"url": "https://api.graph.cool/simple/v1/ciwqwie9x2agt0125xzn8vhov",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0ODUxMDg4MDAsImlhdCI6MTQ4MjUxNjgwMCwicHJvamVjdElkIjoiY2l3cXdpZTl4MmFndDAxMjV4em44dmhvdiIsInVzZXJJZCI6ImNpd3ptdXQ5aWwzeGcwMTkxYXd6eWtiZWUiLCJhdXRoRGF0YSI6eyJlbWFpbCI6Impvc2UubmF2YXJyb0BmYW1vY28uY29tIn19.UkhOlvVdqCO-1rjsSohK1H7ApFIedNUaM01z1OwfraU",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"query\" : \"query UserQuery { user { id email }}\",\n\t\"variables\": {\n\t},\n\t\"operationName\": \"UserQuery\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
