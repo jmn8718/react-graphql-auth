@@ -13,7 +13,7 @@ class HomePage extends Component {
     data: React.PropTypes.shape({
       loading: React.PropTypes.bool,
       error: React.PropTypes.object,
-      allPlaces: React.PropTypes.array,
+      Places: React.PropTypes.array,
     }).isRequired,
     router: React.PropTypes.object.isRequired,
   }
@@ -26,7 +26,7 @@ class HomePage extends Component {
   }
 
   onHover = (placeId) => {
-    const hoveredPlace = this.props.data.allPlaces.find((element) => element.id === placeId);
+    const hoveredPlace = this.props.data.Places.find((element) => element.id === placeId);
     this.setState({ hoveredPlace });
   }
 
@@ -35,8 +35,8 @@ class HomePage extends Component {
   }
 
   render() {
-    const { data: { loading, allPlaces }} = this.props;
-    const places = allPlaces || [];
+    const { data: { loading, Places }} = this.props;
+    const places = Places || [];
     return (
       <div className="w-100" style={{ minHeight: 'calc(100vh - 64px)'}}>
         <PlacesList className="fl w-third min-h-100" loading={loading} places={fromJS(places)} onHover={this.onHover} onHoverLeave={this.onHoverLeave}/>
@@ -48,12 +48,13 @@ class HomePage extends Component {
 
 const PlacesQuery = gql`
   query PlacesQuery {
-    allPlaces {
-      id
+    Places {
+      _id
       name
-      lat
-      lng
-      rating
+      location {
+        lat
+        lng
+      }
     }
   }
 `;

@@ -12,7 +12,7 @@ class MapDrawer extends Component {
             containerStyle={{ width: width, height: height }}
             centerAroundCurrentLocation={true}
           >
-            {marker && <Marker name={marker.get('name')} position={{ lat: marker.get('lat'), lng: marker.get('lng') }} />}
+            {marker && <Marker name={marker.get('name')} position={{ lat: marker.getIn(['location', 'lat']), lng: marker.getIn(['location', 'lng']) }} />}
           </Map>
           :
           <div>LOADING</div>
@@ -25,4 +25,5 @@ class MapDrawer extends Component {
 export default GoogleApiWrapper({
   apiKey: '',
   libraries: ['places','visualization'],
+  version: 3.28,
 })(MapDrawer);

@@ -27,15 +27,16 @@ import { requireLogin } from './utils';
 
 const token = localStorage.getItem('token');
 
-const networkInterface = createNetworkInterface({ uri: 'https://api.graph.cool/simple/v1/ciwqwie9x2agt0125xzn8vhov'});
+const networkInterface = createNetworkInterface({ uri: 'http://localhost:8080/graphql'});
 networkInterface.use([{
   applyMiddleware(req, next) {
     if (!req.options.headers) {
       req.options.headers = {};  // Create the header object if needed.
     }
-    if (token) {
+    const authToken = localStorage.getItem('token');
+    if (authToken) {
       // Get the authentication token from local storage if it exists
-      req.options.headers.Authorization = `Bearer ${token}`;
+      req.options.headers.Authorization = authToken;
     }
     next();
   }

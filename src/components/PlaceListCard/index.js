@@ -31,9 +31,9 @@ const RatingWrapper = styled.div`
 const PlaceListCard = ({ place, onHover, onHoverLeave }) => (
   <Wrapper onMouseOver={() => onHover(place.get('id'))} onMouseLeave={() => onHoverLeave()}>
     <DataWrapper>
-      <div>ID: {place.get('id')}</div>
+      <div>ID: {place.get('_id')}</div>
       <div>NAME: {place.get('name')}</div>
-      <div>Position: {place.get('lat')}, {place.get('lng')} </div>
+      <div>Position: {place.getIn(['location', 'lat'])}, {place.getIn(['location', 'lng'])} </div>
     </DataWrapper>
     <RatingWrapper>{place.get('rating', 0)}</RatingWrapper>
   </Wrapper>
